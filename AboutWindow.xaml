@@ -1,0 +1,55 @@
+﻿<Window  x:Class="Tetris.AboutWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:local="clr-namespace:Tetris"
+         mc:Ignorable="d" 
+         Title="About" Height="600" Width="600"
+         MinWidth="600" MinHeight="600"
+         Foreground="White">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Background.png"/>
+        </Grid.Background>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="88,171,0,0">
+            <TextBlock
+                TextWrapping="Wrap"
+                FontSize="26"
+                Padding="30"
+                TextAlignment="Center"
+                FontWeight="Bold">
+                Информация о создателе:
+            </TextBlock>
+
+            <TextBlock
+                TextWrapping="Wrap"
+                FontSize="26"
+                Padding="4"
+                TextAlignment="Center">
+                Вадим Сирко из БГТУ "Военмех"
+            </TextBlock>
+
+            <TextBlock
+                TextWrapping="Wrap"
+                FontSize="26"
+                Padding="4"
+                TextAlignment="Center">
+                Группа - О734Б
+            </TextBlock>
+
+            <TextBlock
+                TextWrapping="Wrap"
+                FontSize="26"
+                Padding="4"
+                TextAlignment="Center">
+                Разработка игры: 06-12.11.2024
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

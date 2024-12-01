@@ -1,0 +1,177 @@
+﻿<Window x:Class="Tetris.GameManagementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tetris"
+        mc:Ignorable="d"
+        Title="Game Management" Height="600" Width="600"
+        MinWidth="600" MinHeight="600"
+        Foreground="White">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Background.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            TextWrapping="Wrap"
+            FontSize="20"
+            Padding="10"
+            TextAlignment="Center"
+            Margin="32,34,32,378"
+            Grid.RowSpan="2">
+            Тетрис - игра, построенную на использовании 
+            геометрических фигур.
+            Цель игры - расчищать ряды, 
+            стратегически размещая блоки.
+            Количество очков увеличивается за каждый отчищенный ряд. 
+            Чем больше количество очков, тем быстрее падают блоки.
+        </TextBlock>
+
+        <TextBlock
+            Text="Игровое управлние:"
+            FontWeight="Bold"
+            FontSize="26"
+            HorizontalAlignment="Left"
+            Margin="148,188,0,338"
+            Grid.Row="1"/>
+
+        <Grid
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            Margin="28,226,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="280"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Text="Клавиша" FontWeight="Bold"
+                FontSize="26"
+                Grid.Row="0"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Действие"
+                FontWeight="Bold"
+                FontSize="26"
+                Grid.Row="0"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="A"
+                FontSize="22"
+                Grid.Row="1"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Движение влево"
+                FontSize="22"
+                Grid.Row="1"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="D"
+                FontSize="22"
+                Grid.Row="2"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Движение вправо"
+                FontSize="22"
+                Grid.Row="2"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="S"
+                FontSize="22"
+                Grid.Row="3"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Движение вниз"
+                FontSize="22"
+                Grid.Row="3"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="W"
+                FontSize="22"
+                Grid.Row="4"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Вращение по ч.с."
+                FontSize="22"
+                Grid.Row="4"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="E"
+                FontSize="22"
+                Grid.Row="5"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Вращение против ч.с."
+                FontSize="22"
+                Grid.Row="5"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="C"
+                FontSize="22"
+                Grid.Row="6"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Удерживать блок"
+                FontSize="22"
+                Grid.Row="6"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="Space"
+                FontSize="22"
+                Grid.Row="7"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Уронить блок"
+                FontSize="22" 
+                Grid.Row="7"
+                Grid.Column="1"/>
+
+            <TextBlock
+                Text="Escape"
+                FontSize="22"
+                Grid.Row="8"
+                Grid.Column="0"/>
+            <TextBlock
+                Text="Пауза"
+                FontSize="22"
+                Grid.Row="8"
+                Grid.Column="1"/>
+        </Grid>
+
+        <TextBlock
+            TextWrapping="Wrap"
+            FontSize="26"
+            Padding="10"
+            TextAlignment="Center"
+            Margin="10,490,10,26"
+            Grid.Row="1"
+            FontWeight="Bold">
+            Хорошей игры!
+        </TextBlock>
+    </Grid>
+</Window >
