@@ -1,10 +1,8 @@
-﻿using Tetris;
-using System;
+﻿using System;
 using System.Text.Json;
 using System.Windows;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
+using Tetris;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace Tetris
