@@ -11,29 +11,60 @@ namespace Tetris
         public int Score { get; set; }
         public DateTime Date { get; set; }
 
-        public const string LeaderboardFilePath = "leaderboard.json";
+        public static readonly string LeaderboardDirectory =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Tetris");
+        public static readonly string LeaderboardFilePath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Tetris", "leaderboard.json");
+
+
+        private void EnsureDirectoryExists()
+        {
+            string directoryPath = Path.GetDirectoryName(LeaderboardFilePath);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
 
         public void SaveScore(int score)
         {
-            List<ScoreEntry> scores = LoadScores();
+            try
+            {
+                EnsureDirectoryExists();
+                List<ScoreEntry> scores = LoadScores();
 
-            scores.Add(new ScoreEntry { Score = score, Date = DateTime.Now });
+                scores.Add(new ScoreEntry { Score = score, Date = DateTime.Now });
 
-            scores = scores.OrderByDescending(s => s.Score).Take(10).ToList();
+                scores = scores.OrderByDescending(s => s.Score).Take(10).ToList();
 
-            string json = JsonSerializer.Serialize(scores);
-            File.WriteAllText(LeaderboardFilePath, json);
+                string json = JsonSerializer.Serialize(scores);
+                File.WriteAllText(LeaderboardFilePath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving score: {ex.Message}");
+            }
         }
 
         private List<ScoreEntry> LoadScores()
         {
-            if (!File.Exists(LeaderboardFilePath))
+            try
             {
+                EnsureDirectoryExists();
+
+                if (!File.Exists(LeaderboardFilePath))
+                {
+                    return new List<ScoreEntry>();
+                }
+
+                string json = File.ReadAllText(LeaderboardFilePath);
+                return JsonSerializer.Deserialize<List<ScoreEntry>>(json) ?? new List<ScoreEntry>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading scores: {ex.Message}");
                 return new List<ScoreEntry>();
             }
-
-            string json = File.ReadAllText(LeaderboardFilePath);
-            return JsonSerializer.Deserialize<List<ScoreEntry>>(json) ?? new List<ScoreEntry>();
         }
     }
 }
